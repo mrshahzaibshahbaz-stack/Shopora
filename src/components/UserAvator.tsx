@@ -16,8 +16,8 @@ export default function UserAvator() {
 
 const styles = StyleSheet.create({
   avator: {
-    width: scale(50),
-    height: scale(50),
+    width: scale(40),
+    height: scale(40),
     borderRadius: scale(25),
   },
 });
