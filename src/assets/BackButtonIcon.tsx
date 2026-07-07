@@ -1,7 +1,7 @@
 import * as React from "react";
 import Svg, { Circle, Path, SvgProps } from "react-native-svg";
 
-function BackButtonIcon(props: SvgProps) {
+export function BackButtonIcon(props: SvgProps) {
   return (
     <Svg
       width={40}

@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, StatusBar, useColorScheme } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  StatusBar,
+  useColorScheme,
+} from 'react-native';
 import { scale } from 'react-native-size-matters';
 export default function UserAvator() {
   return (
@@ -16,8 +23,8 @@ export default function UserAvator() {
 
 const styles = StyleSheet.create({
   avator: {
-    width: scale(40),
-    height: scale(40),
-    borderRadius: scale(25),
+    width: scale(37),
+    height: scale(37),
+    borderRadius: scale(20),
   },
 });
