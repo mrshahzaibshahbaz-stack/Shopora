@@ -1,16 +1,24 @@
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { StatusBar, StyleSheet, useColorScheme, SafeAreaView } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import FoodLogo from './src/assets/FoodLogo';
-import IntroScreen from './src/screens/IntroScreen';
-import ContactUsScreen from './src/screens/ContactUsScreen';
+import HomeScreen from './src/screens/HomeScreen';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <SafeAreaProvider style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ContactUsScreen/>
+    <SafeAreaProvider>
+      <SafeAreaView 
+        style={[
+          styles.container, 
+          { backgroundColor: isDarkMode ? '#000' : '#fff' }
+        ]}
+      >
+        <StatusBar 
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'} 
+          backgroundColor={isDarkMode ? '#000' : '#fff'} // Android ke liye
+        />
+        <HomeScreen />
+      </SafeAreaView>
     </SafeAreaProvider>
   );
 }
@@ -18,7 +26,6 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
   },
 });
 
