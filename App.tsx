@@ -1,5 +1,5 @@
-import { StatusBar, StyleSheet, useColorScheme, SafeAreaView } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar, StyleSheet, useColorScheme } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import HomeScreen from './src/screens/HomeScreen';
 
 function App() {
@@ -7,15 +7,15 @@ function App() {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView 
+      <SafeAreaView
         style={[
-          styles.container, 
-          { backgroundColor: isDarkMode ? '#000' : '#fff' }
+          styles.container,
+          { backgroundColor: isDarkMode ? '#000' : '#fff' },
         ]}
       >
-        <StatusBar 
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'} 
-          backgroundColor={isDarkMode ? '#000' : '#fff'} // Android ke liye
+        <StatusBar
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={isDarkMode ? '#000' : '#fff'}
         />
         <HomeScreen />
       </SafeAreaView>
