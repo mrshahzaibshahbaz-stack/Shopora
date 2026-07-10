@@ -6,7 +6,7 @@ import {
   useColorScheme,
 } from 'react-native';
 import React from 'react';
-import { s } from 'react-native-size-matters';
+import { s, vs } from 'react-native-size-matters';
 import TopTab from '../components/TopTab';
 
 const HomeScreen = () => {
@@ -22,8 +22,17 @@ const HomeScreen = () => {
       />
       <View style={styles.container}>
         <Text style={styles.title}>HomeScreen</Text>
-        <Text style={styles.titleBody}>Lorem Ipsum is simply dummy text</Text>
-        <TopTab/>
+
+        <Text
+          style={{
+            color: '#2C2016',
+            fontSize: s(14),
+            marginBottom: vs(16),
+          }}
+        >
+          Lorem Ipsum is simply dummy text
+        </Text>
+        <TopTab />
       </View>
     </View>
   );
@@ -35,19 +44,18 @@ const styles = StyleSheet.create({
   container: {
     marginTop: s(50),
     marginHorizontal: s(16),
-    gap: 6
+    gap: 6,
   },
   title: {
     fontSize: s(20),
     fontFamily: 'Montserrat',
-    fontWeight: "semibold",
-    color: '#1D150F'
-    
+    fontWeight: 'semibold',
+    color: '#1D150F',
   },
   titleBody: {
     fontSize: s(14),
     fontFamily: 'Montserrat',
     fontWeight: '400',
-    color: '#2C2016'
-  }
+    color: '#2C2016',
+  },
 });

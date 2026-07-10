@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { s } from 'react-native-size-matters';
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import { s, vs } from "react-native-size-matters";
 
-const tabs = ['Live', 'Recorded'];
+const tabsArr = ["Live", "Recorded"];
 
-const TopTab = () => {
-  const [activeTab, setActiveTab] = useState('Live');
+const ACTIVE_BG = "#75563B";
+
+const ACTIVE_TEXT = "#FFFFFF";
+const INACTIVE_TEXT = "#2C2016";
+
+const TopTabs = () => {
+  const [activeTab, setActiveTab] = useState("Live");
 
   return (
     <View style={styles.container}>
-      {tabs.map((tab) => {
-        const isActive = activeTab === tab;
+      {tabsArr.map((tabName) => {
+        const isActive = activeTab === tabName;
 
         return (
           <TouchableOpacity
-            key={tab}
-            activeOpacity={0.8}
-            onPress={() => setActiveTab(tab)}
             style={[
               styles.tabButton,
-              isActive && styles.activeTab,
-            ]}>
-            <Text
-              style={[
-                styles.tabText,
-                isActive && styles.activeText,
-              ]}>
-              {tab}
+              isActive && { backgroundColor: ACTIVE_BG },
+            ]}
+            onPress={() => setActiveTab(tabName)}
+          >
+            <Text style={isActive ? styles.activeText : styles.inActiveText}>
+              {tabName}
             </Text>
           </TouchableOpacity>
         );
@@ -35,36 +35,31 @@ const TopTab = () => {
   );
 };
 
-export default TopTab;
+export default TopTabs;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    backgroundColor: '#F5F5F4',
+    backgroundColor: "#F5F5F4",
     borderRadius: s(12),
+    height: vs(48),
+    flexDirection: "row",
+    alignItems: "center",
     padding: s(4),
-    marginTop: s(20),
   },
-
   tabButton: {
+    height: vs(32),
     flex: 1,
-    height: s(40),
-    justifyContent: 'center',
-    alignItems: 'center',
     borderRadius: s(8),
+    justifyContent: "center",
+    alignItems: "center",
   },
-
-  activeTab: {
-    backgroundColor: '#75563B',
-  },
-
-  tabText: {
-    fontSize: s(14),
-    fontWeight: '600',
-    color: '#2C2016',
-  },
-
   activeText: {
-    color: '#FFFFFF',
+    color: ACTIVE_TEXT,
+    fontSize: s(14),
+    fontWeight: "semibold",
+  },
+  inActiveText: {
+    fontSize: s(14),
+    color: INACTIVE_TEXT,
   },
 });
