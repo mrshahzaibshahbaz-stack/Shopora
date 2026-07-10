@@ -1,12 +1,18 @@
-import { StyleSheet, Text, View, StatusBar, useColorScheme } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  useColorScheme,
+} from 'react-native';
 import React from 'react';
+import { s } from 'react-native-size-matters';
+import TopTab from '../components/TopTab';
 
 const HomeScreen = () => {
-  const isDarkMode = useColorScheme() === 'light';
-
+  const isDarkMode = useColorScheme() === 'dark';
   const backgroundColor = isDarkMode ? '#000000' : '#FFFFFF';
   const barStyle = isDarkMode ? 'light-content' : 'dark-content';
-
   return (
     <View style={{ flex: 1, backgroundColor }}>
       <StatusBar
@@ -14,9 +20,34 @@ const HomeScreen = () => {
         backgroundColor={backgroundColor}
         translucent={false}
       />
-      <Text>HomeScreen</Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>HomeScreen</Text>
+        <Text style={styles.titleBody}>Lorem Ipsum is simply dummy text</Text>
+        <TopTab/>
+      </View>
     </View>
   );
 };
 
 export default HomeScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: s(50),
+    marginHorizontal: s(16),
+    gap: 6
+  },
+  title: {
+    fontSize: s(20),
+    fontFamily: 'Montserrat',
+    fontWeight: "semibold",
+    color: '#1D150F'
+    
+  },
+  titleBody: {
+    fontSize: s(14),
+    fontFamily: 'Montserrat',
+    fontWeight: '400',
+    color: '#2C2016'
+  }
+});
