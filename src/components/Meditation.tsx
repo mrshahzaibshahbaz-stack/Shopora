@@ -1,7 +1,12 @@
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View, Dimensions } from 'react-native';
 import React from 'react';
 import { s, vs } from 'react-native-size-matters';
 import { VideoIcon } from '../assets/Icons';
+
+
+const PhoneDimensions = Dimensions.get("window").width
+const CardDimension = (PhoneDimensions - s(16)*3)/2
+
 
 const Meditation = () => {
   return (
@@ -34,10 +39,11 @@ export default Meditation;
 
 const styles = StyleSheet.create({
   container: {
-    height: s(166),
-    width: vs(161),
+    height: s(150),
+    width: CardDimension,
     borderRadius: s(12),
     overflow: 'hidden',
+    marginTop: s(10)
   },
   image: {
     borderRadius: s(12),

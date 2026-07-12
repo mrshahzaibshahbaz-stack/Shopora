@@ -4,11 +4,13 @@ import {
   View,
   StatusBar,
   useColorScheme,
+  FlatList,
 } from 'react-native';
 import React from 'react';
 import { s, vs } from 'react-native-size-matters';
 import TopTab from '../components/TopTab';
 import Meditation from '../components/Meditation';
+import { dummyData } from '../data/data';
 
 const HomeScreen = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -34,9 +36,22 @@ const HomeScreen = () => {
           Lorem Ipsum is simply dummy text
         </Text>
         <TopTab />
-        <Meditation />
+        <FlatList 
+         data={dummyData}
+         keyExtractor={item => item.id}
+         renderItem={({item})=> <Meditation/>}
+         showsVerticalScrollIndicator={false}
+         numColumns={2}
+         columnWrapperStyle={
+          {
+            marginBottom: s(16),
+            justifyContent: "space-between"
+          }
+         }
+        />
       </View>
     </View>
+    
   );
 };
 
