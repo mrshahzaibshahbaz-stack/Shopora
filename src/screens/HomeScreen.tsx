@@ -36,22 +36,25 @@ const HomeScreen = () => {
           Lorem Ipsum is simply dummy text
         </Text>
         <TopTab />
-        <FlatList 
-         data={dummyData}
-         keyExtractor={item => item.id}
-         renderItem={({item})=> <Meditation/>}
-         showsVerticalScrollIndicator={false}
-         numColumns={2}
-         columnWrapperStyle={
-          {
+        <FlatList
+          data={dummyData}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => <Meditation imageURL={item.image} title={item.title} date={item.date}/>}
+          showsVerticalScrollIndicator={false}
+          numColumns={2}
+          columnWrapperStyle={{
             marginBottom: s(16),
-            justifyContent: "space-between"
+            justifyContent: 'space-between',
+          }}
+          contentContainerStyle={
+            {
+              paddingBottom: vs(150),
+              paddingTop: vs(24)
+            }
           }
-         }
         />
       </View>
     </View>
-    
   );
 };
 
@@ -59,7 +62,7 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: s(50),
+    marginTop: s(30),
     marginHorizontal: s(16),
     gap: 6,
   },
