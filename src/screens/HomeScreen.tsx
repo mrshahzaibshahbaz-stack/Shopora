@@ -8,6 +8,7 @@ import {
 import React from 'react';
 import { s, vs } from 'react-native-size-matters';
 import TopTab from '../components/TopTab';
+import Meditation from '../components/Meditation';
 
 const HomeScreen = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -33,6 +34,7 @@ const HomeScreen = () => {
           Lorem Ipsum is simply dummy text
         </Text>
         <TopTab />
+        <Meditation />
       </View>
     </View>
   );

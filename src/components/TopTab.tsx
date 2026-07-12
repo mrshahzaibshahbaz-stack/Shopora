@@ -24,6 +24,7 @@ const TopTabs = () => {
               isActive && { backgroundColor: ACTIVE_BG },
             ]}
             onPress={() => setActiveTab(tabName)}
+            key={tabName}
           >
             <Text style={isActive ? styles.activeText : styles.inActiveText}>
               {tabName}
