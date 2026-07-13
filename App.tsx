@@ -1,6 +1,7 @@
 import { StatusBar, StyleSheet, useColorScheme } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import HomeScreen from './src/screens/HomeScreen';
+import { PaymentScreen } from './src/screens/PaymentScreen';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -17,7 +18,8 @@ function App() {
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
           backgroundColor={isDarkMode ? '#000' : '#fff'}
         />
-        <HomeScreen />
+        {/* <HomeScreen /> */}
+        <PaymentScreen/>
       </SafeAreaView>
     </SafeAreaProvider>
   );
