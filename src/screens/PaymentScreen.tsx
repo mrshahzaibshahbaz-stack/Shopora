@@ -2,8 +2,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import BackButton from '../components/BackButton';
 import { s } from 'react-native-size-matters';
-import { PayMethodCard } from '../components/PayMethodCard';
 import { PaymentList } from '../components/PaymentList';
+import { CardView } from '../components/CardView';
 
 export const PaymentScreen = () => {
   return (
@@ -13,7 +13,10 @@ export const PaymentScreen = () => {
         <Text style={styles.paymentText}>Payment</Text>
       </View>
       <View>
-       <PaymentList/>
+        <PaymentList />
+      </View>
+      <View style={{marginHorizontal: s(20), justifyContent: "center", alignItems: "center" }}>
+        <CardView />
       </View>
     </View>
   );
@@ -24,7 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: s(20),
-    marginStart: s(20)
+    marginStart: s(20),
   },
   paymentText: {
     fontSize: s(17),
