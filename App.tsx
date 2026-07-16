@@ -2,6 +2,8 @@ import { StatusBar, StyleSheet, useColorScheme } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import HomeScreen from './src/screens/HomeScreen';
 import { PaymentScreen } from './src/screens/PaymentScreen';
+import StylishSplashScreen from './src/screens/StylishSplashScreen';
+import { LoginScreen } from './src/screens/LoginScreen';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -19,7 +21,9 @@ function App() {
           backgroundColor={isDarkMode ? '#000' : '#fff'}
         />
         {/* <HomeScreen /> */}
-        <PaymentScreen/>
+        {/* <PaymentScreen/> */}
+        {/* <StylishSplashScreen /> */}
+        <LoginScreen/>
       </SafeAreaView>
     </SafeAreaProvider>
   );

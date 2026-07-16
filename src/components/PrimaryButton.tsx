@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: 'semibold',
     textAlign: 'center',
   },
   iconSpacing: {
