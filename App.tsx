@@ -4,6 +4,8 @@ import HomeScreen from './src/screens/HomeScreen';
 import { PaymentScreen } from './src/screens/PaymentScreen';
 import StylishSplashScreen from './src/screens/StylishSplashScreen';
 import { LoginScreen } from './src/screens/LoginScreen';
+import OnboardingScreen from './src/screens/OnboardingScreen';
+import CategoriesScreen from './src/screens/CategoriesScreen';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -23,7 +25,9 @@ function App() {
         {/* <HomeScreen /> */}
         {/* <PaymentScreen/> */}
         {/* <StylishSplashScreen /> */}
-        <LoginScreen/>
+        {/* <LoginScreen/> */}
+        {/* <OnboardingScreen /> */}
+        <CategoriesScreen/>
       </SafeAreaView>
     </SafeAreaProvider>
   );
