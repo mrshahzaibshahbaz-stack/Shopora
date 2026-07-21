@@ -43,9 +43,11 @@ export const PrimaryButton = ({
           opacity: disabled ? 0.6 : 1,
         },
       ]}
-      onPress={onPress}
+      onPress={disabled ? undefined : onPress}
       disabled={disabled}
       activeOpacity={0.8}
+      hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+      accessibilityRole="button"
     >
       {icon && (
         <Icon

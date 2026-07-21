@@ -5,17 +5,27 @@ import {
   StatusBar,
   useColorScheme,
   FlatList,
+  TouchableOpacity,
 } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { s, vs } from 'react-native-size-matters';
 import TopTab from '../components/TopTab';
 import Meditation from '../components/Meditation';
 import { dummyData } from '../data/data';
 
 const HomeScreen = () => {
+  const navigation = useNavigation<any>();
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundColor = isDarkMode ? '#000000' : '#FFFFFF';
   const barStyle = isDarkMode ? 'light-content' : 'dark-content';
+
+  const renderItem = ({ item }: { item: (typeof dummyData)[number] }) => (
+    <TouchableOpacity onPress={() => navigation.navigate('CategoriesScreen')}>
+      <Meditation imageURL={item.image} title={item.title} date={item.date} />
+    </TouchableOpacity>
+  );
+
   return (
     <View style={{ flex: 1, backgroundColor }}>
       <StatusBar
@@ -39,7 +49,7 @@ const HomeScreen = () => {
         <FlatList
           data={dummyData}
           keyExtractor={item => item.id}
-          renderItem={({ item }) => <Meditation imageURL={item.image} title={item.title} date={item.date}/>}
+          renderItem={renderItem}
           showsVerticalScrollIndicator={false}
           numColumns={2}
           columnWrapperStyle={{

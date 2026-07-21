@@ -5,9 +5,11 @@ import CustomTextInput from '../components/CustomTextInput';
 import Icon from 'react-native-vector-icons/FontAwesome6';
 import PrimaryButton from '../components/PrimaryButton';
 import CirculeComponent from '../components/CirculeComponent';
+import { useNavigation } from '@react-navigation/native';
 import { AppleIcon, FacebookIcon, GoogleIcon } from '../assets/Icons';
 
 export const LoginScreen = () => {
+  const navigation = useNavigation<any>()
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Welcome</Text>
@@ -37,6 +39,7 @@ export const LoginScreen = () => {
           textColor="#ffffff"
           borderColor="#F83758"
           backgroundColor="#F83758"
+          onPress={() => navigation.replace('HomeScreen')}
         />
       </View>
       <View style={styles.continueText}>
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginHorizontal: s(30),
-    marginTop: s(30),
+    marginTop: s(50),
   },
   welcomeText: {
     fontFamily: 'Montserrat',

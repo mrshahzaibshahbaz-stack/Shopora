@@ -1,9 +1,12 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, View, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { s } from 'react-native-size-matters';
 import PrimaryButton from '../components/PrimaryButton';
 
 const OnboardingScreen = () => {
+  const navigation = useNavigation<any>();
+
   return (
     <ImageBackground
       source={{
@@ -28,7 +31,7 @@ const OnboardingScreen = () => {
           textColor="#ffffff"
           borderColor="#F83758"
           backgroundColor='#F83758'
-
+          onPress={() => navigation.navigate('LoginScreen')}
         />
       </View>
     </ImageBackground>

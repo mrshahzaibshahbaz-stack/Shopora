@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StatusBar, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { HelloFaloIcon, MenuIcon, SearchIcon } from '../assets/Icons';
 import { s } from 'react-native-size-matters';
@@ -47,47 +47,50 @@ const CategoriesScreen = () => {
   );
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.iconBg}>
-          <MenuIcon />
+    <>
+      <StatusBar barStyle="dark-content" backgroundColor="white" />
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.iconBg}>
+            <MenuIcon />
+          </View>
+          <View style={{ flex: 1 }} />
+          <View style={styles.iconBg}>
+            <SearchIcon />
+          </View>
         </View>
-        <View style={{ flex: 1 }} />
-        <View style={styles.iconBg}>
-          <SearchIcon />
+
+        <View style={styles.helloSection}>
+          <Text style={styles.helloText}>Hello Fola</Text>
+          <HelloFaloIcon />
+        </View>
+        <Text style={styles.letText}>Let’s start shopping!</Text>
+
+        {/* FlatList with proper typing */}
+        <View style={styles.bannerListContainer}>
+          <FlatList
+            data={dummyDiscountBanner}
+            renderItem={renderItem}
+            keyExtractor={item => item.id.toString()}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.bannerListContent}
+          />
+        </View>
+
+        <View style={styles.Categories}>
+          <Text style={styles.categoryTitle}>Top Categories</Text>
+          <View style={{ flex: 1 }}></View>
+          <Text style={styles.seeTitle}>See All</Text>
+        </View>
+        <View>
+          <CategoriesComponents />
+        </View>
+        <View style={{ flex: 1 }}>
+          <ProductItem />
         </View>
       </View>
-
-      <View style={styles.helloSection}>
-        <Text style={styles.helloText}>Hello Fola</Text>
-        <HelloFaloIcon />
-      </View>
-      <Text style={styles.letText}>Let’s start shopping!</Text>
-
-      {/* FlatList with proper typing */}
-      <View style={styles.bannerListContainer}>
-        <FlatList
-          data={dummyDiscountBanner}
-          renderItem={renderItem}
-          keyExtractor={item => item.id.toString()}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.bannerListContent}
-        />
-      </View>
-
-      <View style={styles.Categories}>
-        <Text style={styles.categoryTitle}>Top Categories</Text>
-        <View style={{ flex: 1 }}></View>
-        <Text style={styles.seeTitle}>See All</Text>
-      </View>
-      <View>
-        <CategoriesComponents />
-      </View>
-      <View style={{flex: 1}}>
-        <ProductItem />
-      </View>
-    </View>
+    </>
   );
 };
 
